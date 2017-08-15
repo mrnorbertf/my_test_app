@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android">
+	<data>
+		<import type="android.view.View"/>
+		<import type="java.lang.String"/>
+		<variable name="service" type="moiavto.mbsl.ru.myauto.data.serverModel.CompanyServiceModel"/>
+	</data>
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:background="@color/colorLightBackground">
+		
+		
+		<android.support.v7.widget.AppCompatCheckBox
+				android:id="@+id/addServiceCB"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentStart="true"
+				android:layout_centerVertical="true"
+				android:button="@drawable/checkbox_booking_selector"
+				android:layout_gravity="center_horizontal"
+		/>
+		
+		<LinearLayout
+				android:id="@+id/type_layout"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@+id/addServiceCB"
+				android:layout_toEndOf="@+id/addServiceCB"
+				android:layout_toLeftOf="@+id/discount_type_textView"
+				android:layout_toStartOf="@+id/discount_type_textView"
+				android:layout_marginRight="@dimen/half_default_size"
+				android:layout_marginEnd="@dimen/half_default_size"
+				android:layout_marginLeft="@dimen/half_default_size"
+				android:layout_marginStart="@dimen/half_default_size"
+				android:orientation="vertical"
+				android:gravity="center_vertical"
+				android:layout_centerVertical="true"
+		>
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/type_textView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					style="@style/Label.Normal"
+					android:text="@{service.name}"
+			/>
+			
+			
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/offer_duration_textView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					style="@style/Label.Sub"
+					android:visibility="@{service.actionDescription != null ? View.VISIBLE : View.GONE}"
+					android:text="@{service.actionDescription != null ? service.actionDescription : @string/NoN}"
+			/>
+		</LinearLayout>
+		
+		
+		<android.support.v7.widget.AppCompatTextView
+				android:id="@+id/discount_type_textView"
+				style="@style/Label.Discount"
+				android:layout_toLeftOf="@+id/price_textView"
+				android:layout_toStartOf="@+id/price_textView"
+				android:layout_margin="@dimen/fourth_default_size"
+				android:layout_centerVertical="true"
+				android:visibility="@{service.discount != null &amp;&amp; service.discount != 0 ? View.VISIBLE : View.GONE}"
+				android:text="@{service.discount != null ? service.discount.toString() : @string/NoN}"
+		/>
+		
+		<android.support.v7.widget.AppCompatTextView
+				android:id="@+id/price_textView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_alignParentRight="true"
+				android:layout_alignParentEnd="true"
+				style="@style/Label.Sum.NotBold"
+				android:text="@{service.price != null ? String.valueOf(service.price.intValue()) : @string/NoN}"
+		/>
+	
+	
+	</RelativeLayout>
+</layout>

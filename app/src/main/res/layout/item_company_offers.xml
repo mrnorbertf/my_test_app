@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+	<data>
+		<import type="android.view.View"/>
+		<import type="android.text.TextUtils"/>
+		<variable name="company" type="moiavto.mbsl.ru.myauto.data.serverModel.CompanyModel"/>
+	</data>
+	
+	<android.support.v7.widget.CardView
+			android:id="@+id/list_item_car"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/half_default_size"
+			android:foreground="?android:attr/selectableItemBackground"
+			app:cardCornerRadius="@dimen/half_default_size"
+			app:cardElevation="@dimen/cardElevation_size"
+			app:cardUseCompatPadding="true"
+	>
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:weightSum="100"
+		>
+			<include
+					android:id="@+id/companyPreviewLayout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					layout="@layout/include_company_preview"
+					app:company="@{company}"
+			/>
+			
+			<LinearLayout
+					android:id="@+id/offer_detail_description_layout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+			>
+				
+				<android.support.v7.widget.RecyclerView
+						android:id="@+id/servicesRV"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:visibility="@{company.services != null &amp;&amp;  company.services.size() != 0 ? View.VISIBLE : View.GONE}"
+				/>
+				
+				<include
+						android:id="@+id/work_time_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						layout="@layout/include_work_time_layout"
+						app:schedule="@{company.schedule}"
+				/>
+				
+				<android.support.v7.widget.RecyclerView
+						android:id="@+id/featuresRV"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:paddingTop="@dimen/default_size"
+						android:paddingBottom="@dimen/default_size"
+						android:paddingLeft="@dimen/half_default_size"
+						android:paddingRight="@dimen/half_default_size"
+						android:paddingEnd="@dimen/half_default_size"
+						android:paddingStart="@dimen/half_default_size"
+						android:visibility="@{company.features != null  &amp;&amp; company.features.size() != 0 ? View.VISIBLE : View.GONE}"
+				/>
+				
+				<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						style="@style/Divider"/>
+				
+				<include
+						android:id="@+id/buttonsIncludedLayout"
+						layout="@layout/include_buttons_enroll_call_nav"/>
+			
+			</LinearLayout>
+		</LinearLayout>
+	
+	</android.support.v7.widget.CardView>
+</layout>

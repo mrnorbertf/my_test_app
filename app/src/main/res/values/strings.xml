@@ -1,0 +1,80 @@
+<resources>
+	<string name="app_name">MyAuto</string>
+	<string name="project_number">767465258946</string>
+	<string name="input_phone_number">Введите номер телефона</string>
+	<string name="Continue">Продолжить</string>
+	<string name="schedule">Забронировать</string>
+	<string name="Delete">Удалить</string>
+	<string name="Apply">Применить</string>
+	<string name="Give_review">Оставить отзыв</string>
+	<string name="Send">Отправить</string>
+	<string name="Save">Сохранить</string>
+	<string name="agrees_with_the_terms_of_use">Согласен с условиями пользования</string>
+	<string name="terms_of_use_and_privacy_policy">
+		<a href="http://moiavto.kz/">Правила использования и политика конфиденциальности</a>
+	</string>
+	<string name="terms_of_use_and_privacy_policy_link">http://moiavto.kz/</string>
+	<string name="logo_sign_in">logo_sign_in</string>
+	<string name="enter_the_code_you_sent">Введите код, который был отправлен вам в СМС сообщении</string>
+	<string name="input_sms_verification_code">Введите код из смс</string>
+	<string name="Operating_mode">Режим работы:</string>
+	<string name="PaymentTypes">Тип оплаты:</string>
+	<string name="Prices">Цены:</string>
+	<string name="Enroll">Записаться</string>
+	<string name="Cancel">Отменить</string>
+	<string name="Call">Позвонить</string>
+	
+	<string name="Navigation">Как проехать</string>
+	<string name="Price">Стоимость</string>
+	<string name="price_min_value">от %1$s</string>
+	<string name="price_max_value">до %1$s</string>
+	<string name="rating_value">Будут показаны мойки с рейтингом от %1$s звезд и до %2$s звезд</string>
+	<string name="rating">Рейтинг</string>
+	<string name="service">Услуги</string>
+	<string name="Assessment">Оценка:</string>
+	<string name="Enter_the_name_of_the_service">Введите название услуги</string>
+	<string name="options">Опции</string>
+	<string name="Show_only_free">Показать только свободные</string>
+	<string name="date">Дата:</string>
+	<string name="time">Время:</string>
+	<string name="result">Итого:</string>
+	<string name="car">Автомобиль:</string>
+	<string name="CarNumber">Номер автомобиля</string>
+	<string name="cars">Автомобили</string>
+	<string name="Model">Модель</string>
+	<string name="Color">Цвет</string>
+	<string name="Manufacturer">Марка</string>
+	<string name="Durability">Длительность: </string>
+	<string name="reviews_without">Отзывов</string>
+	
+	
+	<!--<string name="orders_price">Стоимость: %1$.2f</string>-->
+	<string name="time_with_min">%1$s мин</string>
+	
+	<string name="temp_string">temp_string</string>
+	<string name="Input_reviews_message">Введите текст отзыва</string>
+	<string name="cars_body">Кузов</string>
+	<string name="Year_of_manufacture">Год выпуска (не обязательно)</string>
+	<string name="List">Список</string>
+	<string name="Map">Карта</string>
+	<string name="title_activity_maps">Map</string>
+	<string name="open">Свободна</string>
+	<string name="close">Занята</string>
+	<string name="max_rating_score">5.0</string>
+	<string name="msg_reviews_create_success">Спасибо за Ваш отзыв.</string>
+	<string name="Car">Автомобиль:</string>
+	<string name="data">Дата:</string>
+	<string name="Time">Время:</string>
+	<string name="Box">Бокс:</string>
+	<string name="message_choose_date">Выберете дату:</string>
+	<string name="message_choose_car">Выберете автомобиль:</string>
+	<string name="message_choose_time">Выберете время:</string>
+	
+	<string name="how_book_washes">Как забронировать мойку</string>
+	<string name="how_to_contact_us">Как связаться с нами</string>
+	<string name="user_name">Имя пользователя:</string>
+	<string name="user_phone">Телефон:</string>
+	<string name="Edit">Изменить</string>
+	<string name="choose_photo">Выберете фото</string>
+
+</resources>

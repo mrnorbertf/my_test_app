@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- *********************** Others  *********************** -->
+	<style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+		<item name="android:textColorPrimary">@color/colorPrimary</item>
+		<item name="android:background">@android:color/white</item>
+	</style>
+	
+	<style name="ToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+		<item name="android:textSize">20sp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+	</style>
+	
+	<style name="Divider">
+		<item name="android:background">@color/colorGrayTransparent</item>
+	</style>
+	
+	<style name="Divider.UserDetail">
+		<item name="android:layout_marginTop">2dp</item>
+		<item name="android:layout_marginBottom">2dp</item>
+	</style>
+	
+	<style name="rating_bar" parent="@android:style/Widget.RatingBar">
+		<item name="android:progressDrawable">@drawable/rating_bar</item>
+		<item name="android:minHeight">25dip</item>
+		<item name="android:maxHeight">25dip</item>
+	</style>
+	<style name="larger_rating_bar" parent="@android:style/Widget.RatingBar">
+		<item name="android:progressDrawable">@drawable/large_rating_bar</item>
+		<item name="android:minHeight">45dip</item>
+		<item name="android:maxHeight">45dip</item>
+	</style>
+	
+	<style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+		<!-- Used for the buttons -->
+		<item name="colorAccent">@color/colorAccent</item>
+		<!-- Used for the title and text -->
+		<item name="android:textColorPrimary">@color/colorBlack</item>
+		<!-- Used for the background -->
+		<item name="android:background">@color/colorWhite</item>
+	</style>
+	
+	<!-- *********************** Tabs  *********************** -->
+	<style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+		<item name="tabIndicatorColor">@color/colorWhite</item>
+		<item name="tabIndicatorHeight">2dp</item>
+		<item name="tabPaddingStart">8dp</item>
+		<item name="tabPaddingEnd">8dp</item>
+		<item name="tabBackground">?attr/selectableItemBackground</item>
+		<item name="tabTextAppearance">@style/TabTextAppearance</item>
+		<item name="tabSelectedTextColor">@android:color/white</item>
+		<item name="background">?attr/colorPrimary</item>
+	</style>
+	
+	<style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textColor">@color/colorWhite</item>
+		<item name="textAllCaps">false</item>
+	</style>
+	
+	<!-- *********************** Buttons  *********************** -->
+	<style name="Button.Flat" parent="Widget.AppCompat.Button.Borderless"/>
+	
+	<style name="Button.Flat.Primary">
+		<item name="android:background">@drawable/button_green</item>
+		<item name="android:textColor">@color/colorBlackTransparent</item>
+		<item name="android:minWidth">88dp</item>
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:paddingLeft">@dimen/double_default_size</item>
+		<item name="android:paddingRight">@dimen/double_default_size</item>
+		<item name="android:textAllCaps">true</item>
+	</style>
+	
+	<style name="Button.Flat.Gray">
+		<item name="android:background">@drawable/button_gray</item>
+		<item name="android:textColor">@color/colorBlackTransparent</item>
+		<item name="android:minWidth">88dp</item>
+		<item name="android:gravity">center</item>
+		<item name="android:paddingTop">@dimen/default_size</item>
+		<item name="android:paddingBottom">@dimen/default_size</item>
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textAllCaps">true</item>
+	</style>
+	<style name="Button.Flat.Solid">
+		<item name="android:background">@drawable/button_gray_solid</item>
+		<item name="android:textColor">@color/colorBlackTransparent</item>
+		<item name="android:minWidth">88dp</item>
+		<item name="android:gravity">center</item>
+		<item name="android:paddingTop">@dimen/default_size</item>
+		<item name="android:paddingBottom">@dimen/default_size</item>
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textAllCaps">true</item>
+	</style>
+	
+	<style name="Button.Flat.Action">
+		<item name="android:background">@drawable/rounded_button_with_stroke</item>
+		<item name="android:textColor">@color/colorBlue</item>
+		<item name="android:textSize">@dimen/font_small</item>
+		<item name="android:padding">@dimen/half_default_size</item>
+		<item name="android:drawablePadding">@dimen/fourth_default_size</item>
+		<item name="android:textAllCaps">false</item>
+	</style>
+	
+	<style name="Button.Flat.Action.Negative">
+		<item name="android:background">@drawable/rounded_button_with_stroke_negative</item>
+		<item name="android:textColor">@color/colorRed</item>
+		<item name="android:textSize">@dimen/font_small</item>
+		<item name="android:padding">@dimen/half_default_size</item>
+		<item name="android:drawablePadding">@dimen/fourth_default_size</item>
+		<item name="android:textAllCaps">false</item>
+	</style>
+	
+	<style name="Button.Flat.Image">
+		<item name="android:textColor">@color/colorBlue</item>
+		<item name="android:textSize">@dimen/font_small</item>
+		<item name="android:padding">@dimen/half_default_size</item>
+		<item name="android:drawablePadding">@dimen/fourth_default_size</item>
+		<item name="android:textAllCaps">false</item>
+	</style>
+	
+	
+	<!-- *********************** Input Fields  *********************** -->
+	<style name="InputField" parent="Widget.AppCompat.EditText">
+		<item name="android:ems">10</item>
+		<item name="android:textSize">@dimen/font_normal</item>
+	</style>
+	
+	<style name="InputField.Credential">
+		<item name="android:layout_marginLeft">@dimen/default_size</item>
+		<item name="android:layout_marginRight">@dimen/default_size</item>
+		<item name="android:inputType">textCapWords</item>
+		<item name="android:gravity">center_horizontal</item>
+	</style>
+	
+	<style name="InputField.Credential.Name">
+		<item name="android:inputType">textCapWords</item>
+	</style>
+	
+	<style name="InputField.Credential.Email">
+		<item name="android:inputType">textEmailAddress</item>
+	</style>
+	
+	<style name="InputField.Credential.Phone">
+		<item name="android:inputType">phone</item>
+		<item name="android:background">@android:color/transparent</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:layout_marginTop">@dimen/half_default_size</item>
+		<item name="android:minWidth">88dp</item>
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:paddingLeft">@dimen/default_size</item>
+		<item name="android:paddingRight">@dimen/default_size</item>
+		<item name="android:textAllCaps">true</item>
+	</style>
+	
+	<style name="InputField.Credential.Password">
+		<item name="android:inputType">textPassword</item>
+	</style>
+	
+	<style name="InputField.Biggest">
+		<item name="android:ems">10</item>
+		<item name="android:textSize">@dimen/font_biggest</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:background">@color/colorLightBackground</item>
+	</style>
+	
+	<!-- *********************** Labels  *********************** -->
+	<style name="Label">
+		<item name="android:fontFamily">sans-serif-light</item>
+	</style>
+	
+	<style name="Label.CredentialHeader">
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textAllCaps">true</item>
+		<item name="android:textColor">@color/colorWhite</item>
+	</style>
+	
+	<style name="Label.CardLine">
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+	</style>
+	
+	<style name="Label.CardLine.Title">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+	</style>
+	
+	<style name="Label.CardLine.Sub">
+		<item name="android:gravity">end</item>
+	</style>
+	
+	<style name="Label.Sub">
+		<item name="android:textSize">@dimen/font_small</item>
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+	</style>
+	
+	<style name="Label.Sub.Black">
+		<item name="android:textSize">@dimen/font_small</item>
+		<item name="android:textColor">@color/colorBlack</item>
+	</style>
+	
+	<style name="Label.Medium">
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+		<item name="android:textColor">@color/colorBlack</item>
+	</style>
+	
+	
+	<style name="Label.Medium.WithArrow">
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:drawableEnd">@drawable/icon_arrow</item>
+		<item name="android:drawableRight">@drawable/icon_arrow</item>
+		<item name="android:drawablePadding">@dimen/fourth_default_size</item>
+	</style>
+	<style name="Label.Medium.WithArrow.Blue">
+		<item name="android:textSize">@dimen/font_large</item>
+		<item name="android:textColor">@color/colorBlue</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:drawablePadding">@dimen/half_default_size</item>
+	</style>
+	
+	<style name="Label.Medium.Bold">
+		<item name="android:textStyle">bold</item>
+	</style>
+	
+	<style name="Label.Medium.Multiline">
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:maxLines">5</item>
+		<item name="android:maxLength">255</item>
+	</style>
+	
+	<style name="Label.Link">
+		<item name="android:textSize">14sp</item>
+		<item name="android:gravity">center_horizontal</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:layout_marginTop">16dp</item>
+		<item name="android:autoLink">web</item>
+		<item name="android:linksClickable">true</item>
+	</style>
+	
+	<style name="Label.Sum">
+		<item name="android:drawableEnd">@drawable/icon_money_blue</item>
+		<item name="android:drawableRight">@drawable/icon_money_blue</item>
+		<item name="android:drawablePadding">@dimen/fourth_default_size</item>
+		<item name="android:textColor">@color/colorBlue</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">@dimen/font_big</item>
+	</style>
+	
+	<style name="Label.Sum.NotBold">
+		<item name="android:drawableEnd">@drawable/icon_money_blue</item>
+		<item name="android:drawableRight">@drawable/icon_money_blue</item>
+		<item name="android:drawablePadding">@dimen/fourth_default_size</item>
+		<item name="android:textColor">@color/colorBlue</item>
+		<item name="android:textSize">@dimen/font_big</item>
+	</style>
+	
+	<style name="Label.Discount">
+		<item name="android:gravity">center</item>
+		<item name="android:layout_width">@dimen/circle_text_size</item>
+		<item name="android:layout_height">@dimen/circle_text_size</item>
+		<item name="android:background">@drawable/rounded_text_view</item>
+		<item name="android:textColor">@color/colorWhite</item>
+		<item name="android:textSize">@dimen/font_small</item>
+	</style>
+	
+	<style name="Label.Score">
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">@color/colorPurpleMenu</item>
+		<item name="android:textSize">@dimen/font_larger</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	
+	<style name="CircleText">
+		<item name="android:gravity">center</item>
+		<item name="android:background">@drawable/rounded_text_view</item>
+		<item name="android:textColor">@color/colorWhite</item>
+		<item name="android:textSize">@dimen/font_small</item>
+	</style>
+	
+	<style name="Label.Header">
+		<item name="android:gravity">left</item>
+		<item name="android:textColor">@color/colorWhite</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">@dimen/font_larger</item>
+	</style>
+	<style name="Label.Header.Black">
+		<item name="android:gravity">left</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">@dimen/font_larger</item>
+	</style>
+	<style name="Label.SubHeader">
+		<item name="android:gravity">left</item>
+		<item name="android:textColor">@color/colorWhite</item>
+		<item name="android:textSize">@dimen/font_large</item>
+	</style>
+	<style name="Label.EmptyTemplate">
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">@color/colorWhite</item>
+		<item name="android:textSize">@dimen/font_large</item>
+	</style>
+	<style name="Label.EmptyTemplate.Black">
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:textSize">@dimen/font_large</item>
+	</style>
+	<style name="Label.Status">
+		<item name="android:gravity">center</item>
+		<item name="android:textSize">@dimen/font_small</item>
+		<item name="android:paddingTop">@dimen/fourth_default_size</item>
+		<item name="android:paddingBottom">@dimen/fourth_default_size</item>
+		<item name="android:paddingLeft">@dimen/default_size</item>
+		<item name="android:paddingRight">@dimen/default_size</item>
+		<item name="android:background">@drawable/rounded_status_text_view</item>
+	</style>
+	<style name="Label.DividerStatus">
+		<item name="android:gravity">center</item>
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:padding">@dimen/half_default_size</item>
+		<item name="android:background">@color/colorGreen</item>
+		<item name="android:textColor">@color/colorWhite</item>
+	</style>
+	
+	<style name="Label.Bold">
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+		<item name="android:textSize">@dimen/font_normal</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	<style name="Label.Small">
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+		<item name="android:textSize">@dimen/font_medium</item>
+	</style>
+	<style name="Label.Small.Black">
+		<item name="android:textColor">@color/colorBlack</item>
+	</style>
+	
+	<style name="Label.Bold.Black">
+		<item name="android:textColor">@color/colorBlack</item>
+	</style>
+	<style name="Label.Normal">
+		<item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+	</style>
+</resources>

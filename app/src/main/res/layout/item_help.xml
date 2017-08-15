@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android">
+	<data>
+		<variable name="help" type="moiavto.mbsl.ru.myauto.data.serverModel.HelpModel"/>
+		<variable name="auto" type="moiavto.mbsl.ru.myauto.data.serverModel.AutoListResponseModel"/>
+	</data>
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+		
+		<android.support.v7.widget.AppCompatTextView
+				android:id="@+id/subjectHelpTV"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/default_size"
+				android:text="@{help.subject ?? auto.result()}"
+				style="@style/Label.Medium.WithArrow"
+		/>
+		
+		<View
+				android:layout_width="wrap_content"
+				android:layout_height="1dp"
+				style="@style/Divider"/>
+	</LinearLayout>
+</layout>

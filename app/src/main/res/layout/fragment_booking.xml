@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+	<data>
+		<import type="android.view.View"/>
+		<import type="android.text.TextUtils"/>
+		<import type="java.util.Date"/>
+		<variable name="booking" type="moiavto.mbsl.ru.myauto.data.domainData.BookingCreateDomainModel"/>
+	</data>
+	<ScrollView
+			android:id="@+id/rootView"
+			android:focusableInTouchMode="true"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/colorBlue"
+	>
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+		>
+			
+			<android.support.v7.widget.CardView
+					android:id="@+id/bookingLayout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:animateLayoutChanges="true"
+					android:layout_marginBottom="@dimen/half_default_size"
+					android:foreground="?android:attr/selectableItemBackground"
+					app:cardElevation="@dimen/cardElevation_bigSize"
+					app:cardCornerRadius="@dimen/half_default_size"
+					app:cardUseCompatPadding="true"
+			>
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical">
+					
+					<LinearLayout
+							android:id="@+id/dateLayout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal"
+							android:paddingTop="@dimen/default_size"
+							android:paddingBottom="@dimen/default_size"
+							android:paddingStart="@dimen/default_size"
+							android:paddingLeft="@dimen/default_size"
+							android:paddingEnd="@dimen/default_size"
+							android:paddingRight="@dimen/default_size"
+					>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/date_header_tv"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Title"
+								android:text="@string/date"
+						/>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/dateTV"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Sub"
+								app:dateTextShortWithDots="@{booking.bookingDate}"
+						/>
+					
+					</LinearLayout>
+					
+					
+					<View
+							android:layout_width="match_parent"
+							android:layout_height="1dp"
+							style="@style/Divider"/>
+					
+					<LinearLayout
+							android:id="@+id/timeLayout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal"
+							android:paddingTop="@dimen/default_size"
+							android:paddingBottom="@dimen/default_size"
+							android:paddingStart="@dimen/default_size"
+							android:paddingLeft="@dimen/default_size"
+							android:paddingEnd="@dimen/default_size"
+							android:paddingRight="@dimen/default_size"
+					>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/time_header_tv"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Title"
+								android:text="@string/time"
+						/>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/timeTV"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Sub"
+								android:text="@{booking.bookingTime}"
+						/>
+					
+					</LinearLayout>
+					
+					<View
+							android:layout_width="match_parent"
+							android:layout_height="1dp"
+							style="@style/Divider"/>
+					
+					<LinearLayout
+							android:id="@+id/carLayout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal"
+							android:paddingTop="@dimen/default_size"
+							android:paddingBottom="@dimen/default_size"
+							android:paddingStart="@dimen/default_size"
+							android:paddingLeft="@dimen/default_size"
+							android:paddingEnd="@dimen/default_size"
+							android:paddingRight="@dimen/default_size"
+					>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/car_header_tv"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Title"
+								android:text="@string/car"
+						/>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/carTV"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Sub"
+								android:text="@{booking.carName}"
+						/>
+					
+					</LinearLayout>
+					
+					<View
+							android:layout_width="match_parent"
+							android:layout_height="1dp"
+							style="@style/Divider"/>
+					
+					<LinearLayout
+							android:id="@+id/servicesLayout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical"
+							android:background="@color/colorLightBackground"
+							android:padding="@dimen/default_size"
+					>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/options_header_tv"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Title"
+								android:text="@string/options"
+						/>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/emptyServiceTV"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								style="@style/Label.CardLine.Sub"
+								android:text="@string/msg_no_service"
+								android:visibility="gone"
+						/>
+						<android.support.v7.widget.RecyclerView
+								android:id="@+id/servicesRV"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="@dimen/half_default_size"
+						/>
+					
+					</LinearLayout>
+					
+					<View
+							android:layout_width="match_parent"
+							android:layout_height="1dp"
+							style="@style/Divider"/>
+					
+					
+					<include
+							android:id="@+id/bookingResultLayout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							layout="@layout/include_booking_result"
+							app:duration="@{booking.duration}"
+							app:price="@{booking.sum}"
+					/>
+					
+					
+					<android.support.v7.widget.AppCompatButton
+							android:id="@+id/bookButton"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							android:layout_margin="@dimen/default_size"
+							android:layout_marginBottom="@dimen/default_size"
+							style="@style/Button.Flat.Primary"
+							android:text="@string/schedule"
+					/>
+				
+				</LinearLayout>
+			
+			</android.support.v7.widget.CardView>
+			
+			<include
+					android:id="@+id/includedProgressDialog"
+					layout="@layout/include_progress_bar"/>
+		</RelativeLayout>
+	
+	</ScrollView>
+</layout>

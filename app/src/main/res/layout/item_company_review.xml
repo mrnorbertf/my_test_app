@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<import type="android.view.View"/>
+		<variable name="review" type="moiavto.mbsl.ru.myauto.data.serverModel.ReviewModel"/>
+	</data>
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:background="@color/colorWhite"
+	>
+		
+		<ImageView
+				android:id="@+id/userCircleImage"
+				android:layout_width="@dimen/circle_image_size"
+				android:layout_height="@dimen/circle_image_size"
+				android:layout_marginTop="@dimen/default_size"
+				android:layout_marginLeft="@dimen/default_size"
+				android:layout_marginStart="@dimen/default_size"
+				android:layout_marginRight="@dimen/half_default_size"
+				android:layout_marginEnd="@dimen/half_default_size"
+				android:layout_marginBottom="@dimen/default_size"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:src="@mipmap/ic_launcher"
+				app:imageCircleUrl="@{review.userAvatarUrl}"
+		/>
+		
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+				android:layout_toRightOf="@+id/userCircleImage"
+				android:layout_toEndOf="@+id/userCircleImage"
+				android:padding="@dimen/default_size"
+		>
+			
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/userNameTV"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentStart="true"
+					android:layout_toLeftOf="@+id/reviewsDateTV"
+					android:layout_toStartOf="@+id/reviewsDateTV"
+					android:gravity="start"
+					style="@style/Label.Medium.Bold"
+					android:text="@{review.userName}"
+			/>
+			
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/reviewsDateTV"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentRight="true"
+					android:gravity="end"
+					style="@style/TextAppearance.AppCompat.Caption"
+					app:dateText="@{review.dateCreate}"
+			/>
+			
+			<android.support.v7.widget.AppCompatRatingBar
+					android:id="@+id/ratingBar"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@+id/userNameTV"
+					android:numStars="5"
+					android:isIndicator="true"
+					style="@style/rating_bar"
+			/>
+			
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/commentTV"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@+id/ratingBar"
+					android:layout_marginTop="@dimen/half_default_size"
+					style="@style/TextAppearance.AppCompat.Caption"
+					android:textSize="@dimen/font_normal"
+					android:text="@{review.text}"
+			
+			/>
+		</RelativeLayout>
+		
+		<View android:layout_width="match_parent"
+		      android:layout_height="1dp"
+		      android:layout_alignParentBottom="true"
+		      style="@style/Divider"/>
+	</RelativeLayout>
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="super_default_size">50dp</dimen>
+	<dimen name="double_default_size">32dp</dimen>
+	<dimen name="default_size">16dp</dimen>
+	<dimen name="half_default_size">8dp</dimen>
+	<dimen name="fourth_default_size">4dp</dimen>
+	<dimen name="eighth_default_size">2dp</dimen>
+	
+	<!-- font sizes -->
+	<dimen name="font_biggest">35sp</dimen>
+	<dimen name="font_big">26sp</dimen>
+	<dimen name="font_larger">22sp</dimen>
+	<dimen name="font_large">18sp</dimen>
+	<dimen name="font_normal">16sp</dimen>
+	<dimen name="font_medium">14sp</dimen>
+	<dimen name="font_small">12sp</dimen>
+	<dimen name="font_smaller">10sp</dimen>
+	
+	<!-- typical sizes of views -->
+	<dimen name="button_height_tall">60dp</dimen>
+	<dimen name="button_height_normal">40dp</dimen>
+	<dimen name="button_height_short">32dp</dimen>
+	<dimen name="cardElevation_size">4dp</dimen>
+	<dimen name="cardElevation_bigSize">8dp</dimen>
+	<dimen name="circle_text_size">25dp</dimen>
+	<dimen name="list_image_height">250dp</dimen>
+	<dimen name="circle_widget_size">35dp</dimen>
+	<dimen name="feature_widget_size">35dp</dimen>
+	<dimen name="circle_image_size">100dp</dimen>
+
+</resources>

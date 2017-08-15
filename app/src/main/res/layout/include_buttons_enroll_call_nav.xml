@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android">
+	<LinearLayout
+			android:id="@+id/button_layouts"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:paddingTop="@dimen/default_size"
+			android:paddingBottom="@dimen/default_size"
+			android:paddingLeft="@dimen/half_default_size"
+			android:paddingRight="@dimen/half_default_size"
+			android:paddingEnd="@dimen/half_default_size"
+			android:paddingStart="@dimen/half_default_size"
+			android:weightSum="99">
+		
+		<android.support.v7.widget.AppCompatButton
+				android:id="@+id/enrollButton"
+				android:layout_width="0dp"
+				android:layout_weight="33"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:drawableLeft="@drawable/icon_enroll"
+				android:drawableStart="@drawable/icon_enroll"
+				style="@style/Button.Flat.Action"
+				android:text="@string/Enroll"
+		/>
+		
+		<android.support.v7.widget.AppCompatButton
+				android:id="@+id/callButton"
+				android:layout_width="0dp"
+				android:layout_weight="33"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:drawableLeft="@drawable/icon_call"
+				android:drawableStart="@drawable/icon_call"
+				style="@style/Button.Flat.Action"
+				android:text="@string/Call"
+				android:layout_margin="@dimen/half_default_size"
+		/>
+		<android.support.v7.widget.AppCompatButton
+				android:id="@+id/navigationButton"
+				android:layout_width="0dp"
+				android:layout_weight="33"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				style="@style/Button.Flat.Action"
+				android:drawableLeft="@drawable/icon_nav"
+				android:drawableStart="@drawable/icon_nav"
+				android:text="@string/Navigation"
+		/>
+	</LinearLayout>
+</layout>

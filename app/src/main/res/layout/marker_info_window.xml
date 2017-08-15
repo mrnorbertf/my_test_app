@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<import type="android.view.View"/>
+		<import type="android.text.TextUtils"/>
+		<variable name="company" type="moiavto.mbsl.ru.myauto.data.serverModel.CompanyModel"/>
+	</data>
+	<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+		
+		<android.support.v7.widget.CardView
+				android:id="@+id/list_item_car"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="@dimen/double_default_size"
+				android:layout_marginStart="@dimen/double_default_size"
+				android:layout_marginRight="@dimen/double_default_size"
+				android:layout_marginEnd="@dimen/double_default_size"
+				android:foreground="?android:attr/selectableItemBackground"
+				app:cardCornerRadius="@dimen/half_default_size"
+				app:cardElevation="@dimen/cardElevation_size"
+				app:cardUseCompatPadding="true"
+				app:contentPaddingTop="@dimen/half_default_size"
+				app:contentPaddingBottom="@dimen/half_default_size"
+		>
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+			>
+				
+				<android.support.v7.widget.AppCompatTextView
+						android:id="@+id/washNameTV"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/default_size"
+						android:layout_marginRight="@dimen/default_size"
+						android:layout_marginEnd="@dimen/default_size"
+						android:layout_marginStart="@dimen/default_size"
+						style="@style/Label.CardLine.Title"
+				/>
+				
+				
+				<android.support.v7.widget.AppCompatTextView
+						android:id="@+id/washAddressTV"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/default_size"
+						android:layout_marginRight="@dimen/default_size"
+						android:layout_marginEnd="@dimen/default_size"
+						android:layout_marginStart="@dimen/default_size"
+						style="@style/Label.CardLine"
+				/>
+				
+				<RelativeLayout
+						android:id="@+id/rating_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:paddingTop="@dimen/half_default_size"
+				>
+					
+					<RelativeLayout
+							android:id="@+id/status_layout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal"
+							android:gravity="center_vertical"
+							android:paddingBottom="@dimen/half_default_size"
+							android:paddingLeft="@dimen/default_size"
+							android:paddingRight="@dimen/default_size"
+							android:paddingEnd="@dimen/default_size"
+							android:paddingStart="@dimen/default_size"
+					>
+						<android.support.v7.widget.AppCompatRatingBar
+								android:id="@+id/ratingBar"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:numStars="5"
+								android:rating="3"
+								android:layout_alignParentLeft="true"
+								android:layout_alignParentStart="true"
+								style="@style/rating_bar"
+						/>
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/statusTV"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_alignParentEnd="true"
+								android:layout_alignParentRight="true"
+								android:paddingTop="@dimen/fourth_default_size"
+								android:paddingBottom="@dimen/fourth_default_size"
+								android:paddingLeft="@dimen/default_size"
+								android:paddingRight="@dimen/default_size"
+								android:paddingStart="@dimen/default_size"
+								android:paddingEnd="@dimen/default_size"
+								android:background="@drawable/rounded_status_text_view"
+								android:gravity="center"
+								android:textSize="@dimen/font_small"
+						/>
+					
+					</RelativeLayout>
+					<View
+							android:layout_width="match_parent"
+							android:layout_height="1dp"
+							android:layout_alignBottom="@+id/status_layout"
+							style="@style/Divider"/>
+				</RelativeLayout>
+				<include
+						android:id="@+id/work_time_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						layout="@layout/include_work_time_layout"
+						app:schedule="@{company.schedule}"
+				/>
+				
+				<RelativeLayout
+						android:id="@+id/priceLayout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+				>
+					<LinearLayout
+							android:id="@+id/priceContentLayout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal"
+							android:gravity="center_vertical"
+							android:paddingTop="@dimen/default_size"
+							android:paddingBottom="@dimen/half_default_size"
+							android:paddingLeft="@dimen/default_size"
+							android:paddingRight="@dimen/default_size"
+							android:paddingEnd="@dimen/default_size"
+							android:paddingStart="@dimen/default_size"
+					>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/priceTV"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:gravity="center"
+								style="@style/Label.Sub"
+								android:text="@string/Prices"
+						/>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/priceCountTv"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:gravity="end"
+								style="@style/Label.Sub.Black"
+						/>
+					
+					</LinearLayout>
+				</RelativeLayout>
+			</LinearLayout>
+		</android.support.v7.widget.CardView>
+	
+	</FrameLayout>
+</layout>

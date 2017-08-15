@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<import type="android.view.View"/>
+		<variable name="company" type="moiavto.mbsl.ru.myauto.data.serverModel.CompanyModel"/>
+	</data>
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/colorWhite"
+	>
+		
+		
+		<include android:id="@+id/progressBar"
+		         layout="@layout/include_progress_bar"
+		         android:visibility="gone"
+		/>
+		
+		<android.support.v4.widget.NestedScrollView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+			
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+			>
+				<include
+						android:id="@+id/companyPreviewLayout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						layout="@layout/include_company_preview"
+						app:company="@{company}"
+				/>
+				
+				<include
+						android:id="@+id/work_time_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						layout="@layout/include_work_time_layout"
+						app:schedule="@{company.schedule}"
+				/>
+				
+				
+				<LinearLayout
+						android:id="@+id/comment_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+				>
+					<LinearLayout
+							android:id="@+id/comment_text_layout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal"
+							android:gravity="center_vertical"
+							android:paddingLeft="@dimen/default_size"
+							android:paddingRight="@dimen/default_size"
+							android:paddingEnd="@dimen/default_size"
+							android:paddingStart="@dimen/default_size"
+					>
+						
+						<android.support.v7.widget.AppCompatTextView
+								android:id="@+id/last_comment_textView"
+								android:layout_width="0dp"
+								android:layout_height="wrap_content"
+								android:layout_weight="100"
+								android:paddingTop="@dimen/default_size"
+								android:paddingBottom="@dimen/default_size"
+								style="@style/Label.Medium"
+								android:text="@{company.description ?? @string/msg_no_description}"
+						/>
+						
+						<View
+								android:layout_width="1dp"
+								android:layout_height="match_parent"
+								style="@style/Divider"/>
+						
+						<android.support.v7.widget.AppCompatButton
+								android:id="@+id/reviewsButton"
+								android:layout_width="0dp"
+								android:layout_weight="33"
+								android:layout_height="wrap_content"
+								android:layout_gravity="center_vertical"
+								style="@style/Button.Flat.Image"
+								android:drawableTop="@drawable/icon_review"
+								android:text="@{@plurals/reviews(company.reviews ?? 0, company.reviews ?? 0)}"
+						/>
+					</LinearLayout>
+					
+					<View
+							android:layout_width="match_parent"
+							android:layout_height="1dp"
+							style="@style/Divider"/>
+				</LinearLayout>
+				
+				<LinearLayout
+						android:id="@+id/featuresLayout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+						android:visibility="@{company.features != null  &amp;&amp; company.features.size() != 0 ? View.VISIBLE : View.GONE}"
+				>
+					
+					<android.support.v7.widget.RecyclerView
+							android:id="@+id/featuresRV"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:paddingTop="@dimen/default_size"
+							android:paddingBottom="@dimen/default_size"
+							android:paddingLeft="@dimen/half_default_size"
+							android:paddingRight="@dimen/half_default_size"
+							android:paddingEnd="@dimen/half_default_size"
+							android:paddingStart="@dimen/half_default_size"
+					/>
+					
+					<View
+							android:layout_width="match_parent"
+							android:layout_height="1dp"
+							style="@style/Divider"/>
+				</LinearLayout>
+				
+				<android.support.v7.widget.RecyclerView
+						android:id="@+id/servicesRV"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:visibility="@{company.services != null &amp;&amp;  company.services.size() != 0 ? View.VISIBLE : View.GONE}"
+				/>
+				
+				<include
+						android:id="@+id/buttons_include_layout"
+						layout="@layout/include_buttons_enroll_call_nav"/>
+			</LinearLayout>
+		</android.support.v4.widget.NestedScrollView>
+	</RelativeLayout>
+</layout>

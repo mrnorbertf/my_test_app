@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="msg_this_field_is_required">Это поле обязательно к заполнению</string>
+	<string name="msg_no_data">Ничего нет, повторите позднее.</string>
+	<string name="msg_no_comments_data">Пока еще нет комментаривев.</string>
+	<string name="msg_no_description">Нет описания</string>
+	<string name="msg_no_free_date">Нет свободных дат</string>
+	<string name="msg_no_free_time">На данный день все позиции заняты</string>
+	<string name="msg_no_user_car">Вы еще не добавили ни одного автомобиля</string>
+	<string name="msg_no_service">Нет услуг с задаными парамметрами</string>
+	<string name="msg_booking_is_success">Бронирование прошло успешно</string>
+	<string name="msg_booking_is_canceled">Бронирование успешно отменено.</string>
+	<string name="error_no_internet_connection">Нет подключения к серверу, повтрите позднее</string>
+	<string name="Msg_no_photo_permission">Разрешения не были даны, не возможно изменить фото</string>
+	<string name="msg_permission">
+		<![CDATA[Данные разрешения нужны для корректной работы приложения.    Пожалуйста добавьте разрешения в [Настройки] > [Приложения] > [О приложении]]]></string>
+	<string name="NoN">NoN</string>
+	<string name="msg_no_available_dates">Нет доступных дат бронирования</string>
+	<string name="msg_no_available_auto">У вас не указан ни один автомобиль</string>
+	<string name="msg_logout_message">Вы действительно хотите выйти из приложения?</string>
+	<string name="msg_Filters_were_applied">Фильтры применены.</string>
+</resources>

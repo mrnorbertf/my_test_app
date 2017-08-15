@@ -1,0 +1,24 @@
+<resources>
+	
+	<style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
+	<style name="AppTheme" parent="AppTheme.Base">
+		<item name="colorControlNormal">@color/colorWhite</item>
+		<item name="colorControlActivated">@color/colorAccent</item>
+		<item name="android:textColorPrimary">@color/colorWhite</item>
+		<item name="android:textColorHint">@android:color/darker_gray</item>
+	</style>
+	
+	<style name="TransparentStatusBar" parent="AppTheme.Base">
+	</style>
+	
+	<style name="SplashTheme" parent="TransparentStatusBar">
+		<item name="android:windowBackground">@drawable/background_splash</item>
+	</style>
+	<style name="LoginTheme" parent="TransparentStatusBar">
+		<item name="android:windowBackground">@drawable/background_login</item>
+	</style>
+</resources>

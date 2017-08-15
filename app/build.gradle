@@ -1,0 +1,163 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.getkeepsafe.dexcount'
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "moiavto.mbsl.ru.myauto"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 3
+        versionName "1.0.0.3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        dataBinding {
+            enabled = true
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('D:/KeyStore/MyAuto_keystore.jks')
+            storePassword STORE_PASSWORD
+            keyAlias "key_release"
+            keyPassword KEY_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        applicationVariants.all { variant ->
+            renameAPK(variant, defaultConfig)
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+def renameAPK(variant, defaultConfig) {
+    variant.outputs.each { output ->
+        def file = output.packageApplication.outputFile
+        def buildType = variant.variantData.variantConfiguration.buildType.name
+        def fileName = applicationName + "_v" + defaultConfig.versionCode + "_" + buildType + ".apk"
+        output.packageApplication.outputFile = new File(file.parent, fileName)
+    }
+}
+
+ext {
+    supportLibraryVersion = '25.3.1'
+    playServicesVersion = '11.0.4'
+    firebaseServicesVersion = '11.0.4'
+    retrofitVersion = '2.1.0'
+    moxyVersion = '1.5.1'
+    RxJava_verison = '2.1.0'
+    RxAndroid_verison = '2.0.1'
+    RxBindings_verison = '2.0.0'
+    LeakCanary_version = '1.5.1'
+}
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://jitpack.io" }
+        maven { url "https://dl.bintray.com/hani-momanii/maven" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:multidex:1.0.1'
+    // supportlibrary
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:support-v4:$supportLibraryVersion"
+    compile "com.android.support:design:$supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$supportLibraryVersion"
+    //play services
+    compile "com.google.android.gms:play-services-gcm:$playServicesVersion"
+    compile "com.google.android.gms:play-services-maps:$playServicesVersion"
+    compile "com.google.android.gms:play-services-location:$playServicesVersion"
+    compile 'com.google.maps.android:android-maps-utils:0.5'
+    //annotations
+    compile 'io.swagger:swagger-annotations:1.5.13'
+    // Dagger
+    compile 'com.google.dagger:dagger:2.10'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
+    // ButterKnife
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    //Logging
+    compile 'com.jakewharton.timber:timber:4.5.1'
+    testCompile 'junit:junit:4.12'
+}
+//A memory leak detection library for Android and Java.
+dependencies {
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$LeakCanary_version"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$LeakCanary_version"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$LeakCanary_version"
+}
+//MVP library - moxy
+dependencies {
+    compile "com.arello-mobile:moxy-app-compat:$moxyVersion"
+    annotationProcessor "com.arello-mobile:moxy-compiler:$moxyVersion"
+}
+//Rx Library
+dependencies {
+    compile "io.reactivex.rxjava2:rxjava:$RxJava_verison"
+    compile "io.reactivex.rxjava2:rxandroid:$RxAndroid_verison"
+    compile "com.jakewharton.rxbinding2:rxbinding:$RxBindings_verison"
+}
+//firebase service
+dependencies {
+    compile "com.google.firebase:firebase-core:$firebaseServicesVersion"
+    compile "com.google.firebase:firebase-messaging:$firebaseServicesVersion"
+    compile('com.crashlytics.sdk.android:crashlytics:2.+@aar') {
+        transitive = true;
+    }
+}
+//network service
+dependencies {
+    //Gson
+    compile 'com.google.code.gson:gson:2.8.0'
+    //Retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    //OkHttp
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    // Glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+}
+//elements
+dependencies {
+    compile 'com.redmadrobot:inputmask:2.3.0'
+    compile 'com.crystal:crystalrangeseekbar:1.1.3'
+    compile 'gun0912.ted:tedpermission:1.0.3'
+    compile 'gun0912.ted:tedbottompicker:1.0.12'
+}
+apply plugin: 'com.google.gms.google-services'

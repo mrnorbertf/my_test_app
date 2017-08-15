@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+	
+	<ScrollView
+			android:id="@+id/rootView"
+			android:fillViewport="true"
+			android:focusableInTouchMode="true"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/colorBlue"
+	>
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:background="@color/colorWhite"
+		>
+			
+			<include android:id="@+id/progressBar"
+			         layout="@layout/include_progress_bar"
+			         android:visibility="gone"
+			/>
+			
+			<RelativeLayout
+					android:id="@+id/header_score_layout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:padding="@dimen/default_size"
+					android:background="@color/colorLightBackground"
+					android:gravity="center_vertical"
+			>
+				<android.support.v7.widget.AppCompatTextView
+						android:id="@+id/service_header_tv"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:layout_alignParentLeft="true"
+						android:layout_alignParentStart="true"
+						android:layout_toLeftOf="@+id/ratingBar"
+						android:layout_toStartOf="@+id/ratingBar"
+						android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+						android:textColor="@color/colorBlack"
+						android:text="@string/Assessment"
+				/>
+				
+				<android.support.v7.widget.AppCompatRatingBar
+						android:id="@+id/ratingBar"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentTop="true"
+						android:layout_alignParentRight="true"
+						android:layout_alignParentEnd="true"
+						android:numStars="5"
+						android:rating="5"
+						style="@style/rating_bar"
+				/>
+			
+			</RelativeLayout>
+			
+			<android.support.design.widget.TextInputLayout
+					android:id="@+id/reviewsLayout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:padding="@dimen/default_size"
+					app:counterEnabled="true"
+					app:counterMaxLength="1000"
+			>
+				
+				<android.support.v7.widget.AppCompatEditText
+						android:id="@+id/reviewET"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_centerHorizontal="true"
+						android:layout_centerVertical="true"
+						android:textColor="@color/colorBlack"
+						style="@style/InputField"
+						android:gravity="start|top"
+						android:hint="@string/Input_reviews_message"
+						android:minLines="5"
+						android:maxLines="10"
+						android:ems="10"/>
+			
+			</android.support.design.widget.TextInputLayout>
+			
+			<View
+					android:id="@+id/divider"
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					style="@style/Divider"/>
+			
+			<android.support.v7.widget.AppCompatButton
+					android:id="@+id/addReviewButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_margin="@dimen/double_default_size"
+					android:paddingTop="@dimen/default_size"
+					android:paddingBottom="@dimen/default_size"
+					android:layout_gravity="center"
+					style="@style/Button.Flat.Primary"
+					android:text="@string/Send"
+			/>
+		</LinearLayout>
+	</ScrollView>
+</layout>

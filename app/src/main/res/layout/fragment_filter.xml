@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<import type="android.view.View"/>
+		<import type="android.text.TextUtils"/>
+		<variable name="filter" type="moiavto.mbsl.ru.myauto.data.serverModel.CompanyListRequestModel"/>
+	</data>
+	
+	<ScrollView
+			android:id="@+id/rootView"
+			android:focusableInTouchMode="true"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/colorBlue"
+	>
+		
+		<android.support.v7.widget.CardView
+				android:id="@+id/filter_card_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/half_default_size"
+				android:foreground="?android:attr/selectableItemBackground"
+				app:cardElevation="@dimen/cardElevation_bigSize"
+				app:cardCornerRadius="@dimen/half_default_size"
+				app:cardUseCompatPadding="true"
+		>
+			
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+				
+				<RelativeLayout
+						android:id="@+id/price_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="@dimen/default_size"
+				>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/price_header_tv"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_centerVertical="true"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:textColor="@color/colorBlack"
+							android:text="@string/Price"
+					/>
+				
+				</RelativeLayout>
+				
+				
+				<com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+						android:id="@+id/priceSeekBar"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="@dimen/default_size"
+						android:layout_marginLeft="@dimen/default_size"
+						android:layout_marginRight="@dimen/default_size"
+						android:layout_marginEnd="@dimen/default_size"
+						android:layout_marginStart="@dimen/default_size"
+						app:corner_radius="10"
+						app:bar_color="@color/colorSeekBarGray"
+						app:bar_highlight_color="@color/colorGreen"
+						app:left_thumb_image="@drawable/icon_seek_bar_knob"
+						app:right_thumb_image="@drawable/icon_seek_bar_knob"
+						app:data_type="_double"
+						app:max_value="10000"
+						app:min_value="0"
+						app:steps="100"
+				/>
+				
+				
+				<RelativeLayout
+						android:id="@+id/value_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:paddingStart="@dimen/default_size"
+						android:paddingLeft="@dimen/default_size"
+						android:paddingEnd="@dimen/default_size"
+						android:paddingRight="@dimen/default_size"
+						android:paddingBottom="@dimen/half_default_size"
+				>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/priceMinTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_alignParentLeft="true"
+							android:layout_alignParentStart="true"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:textSize="@dimen/font_small"
+							android:text="@{@string/price_min_value(filter.minPrice != null ? filter.minPrice.intValue() : 0)}"
+					/>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/priceMaxTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:gravity="end"
+							android:layout_toRightOf="@+id/priceMinTV"
+							android:layout_toEndOf="@+id/priceMinTV"
+							android:layout_alignParentEnd="true"
+							android:layout_alignParentRight="true"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:textSize="@dimen/font_small"
+							android:text="@{@string/price_max_value(filter.maxPrice != null ? filter.maxPrice.intValue() : 10000)}"
+					/>
+				</RelativeLayout>
+				
+				<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						style="@style/Divider"/>
+				
+				<RelativeLayout
+						android:id="@+id/rating_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:paddingTop="@dimen/half_default_size"
+						android:paddingStart="@dimen/default_size"
+						android:paddingLeft="@dimen/default_size"
+						android:paddingEnd="@dimen/default_size"
+						android:paddingRight="@dimen/default_size"
+				>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/rating_header_tv"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_centerVertical="true"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:textColor="@color/colorBlack"
+							android:text="@string/rating"
+					/>
+				
+				</RelativeLayout>
+				
+				<com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+						android:id="@+id/ratingSeekBar"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="@dimen/default_size"
+						android:layout_marginLeft="@dimen/default_size"
+						android:layout_marginRight="@dimen/default_size"
+						android:layout_marginEnd="@dimen/default_size"
+						android:layout_marginStart="@dimen/default_size"
+						app:data_type="_double"
+						app:bar_color="@color/colorSeekBarGray"
+						app:bar_highlight_color="@color/colorGreen"
+						app:left_thumb_image="@drawable/icon_seek_bar_knob"
+						app:right_thumb_image="@drawable/icon_seek_bar_knob"
+						app:corner_radius="10"
+						app:max_value="5"
+						app:min_value="0"
+						app:steps="0.5"/>
+				
+				<RelativeLayout
+						android:id="@+id/value_rating_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:paddingStart="@dimen/default_size"
+						android:paddingLeft="@dimen/default_size"
+						android:paddingEnd="@dimen/default_size"
+						android:paddingRight="@dimen/default_size"
+						android:paddingBottom="@dimen/half_default_size"
+				>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/rating_min_value_tv"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_alignParentLeft="true"
+							android:layout_alignParentStart="true"
+							android:textSize="@dimen/font_small"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:text="@{@string/rating_value(filter.minRating != null ? filter.minRating.doubleValue() : 0, filter.maxRating != null ? filter.maxRating.doubleValue() : 5)}"
+					/>
+				</RelativeLayout>
+				
+				
+				<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						style="@style/Divider"/>
+				
+				<LinearLayout
+						android:id="@+id/service_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+						android:paddingTop="@dimen/half_default_size"
+						android:paddingStart="@dimen/default_size"
+						android:paddingLeft="@dimen/default_size"
+						android:paddingEnd="@dimen/default_size"
+						android:paddingRight="@dimen/default_size"
+				>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/service_header_tv"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:textColor="@color/colorBlack"
+							android:text="@string/service"
+					/>
+					
+					<android.support.v7.widget.AppCompatEditText
+							android:id="@+id/serviceET"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							style="@style/InputField"
+							android:textColor="@color/colorBlack"
+							android:hint="@string/Enter_the_name_of_the_service"
+							android:text="@{TextUtils.isEmpty(filter.serviceName) ? null : filter.serviceName}"
+					/>
+				
+				</LinearLayout>
+				
+				<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						style="@style/Divider"/>
+				
+				<LinearLayout
+						android:id="@+id/options_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+						android:paddingTop="@dimen/half_default_size"
+						android:paddingStart="@dimen/default_size"
+						android:paddingLeft="@dimen/default_size"
+						android:paddingEnd="@dimen/default_size"
+						android:paddingRight="@dimen/default_size"
+				>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/options_header_tv"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:textColor="@color/colorBlack"
+							android:text="@string/options"
+					/>
+					
+					<android.support.v7.widget.RecyclerView
+							android:id="@+id/featuresRV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:paddingTop="@dimen/half_default_size"
+							android:paddingBottom="@dimen/half_default_size"
+					/>
+				
+				</LinearLayout>
+				<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						style="@style/Divider"/>
+				
+				<FrameLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@color/colorLightBackground"
+				>
+					<android.support.v7.widget.AppCompatCheckBox
+							android:id="@+id/onlyFreeCB"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:gravity="center"
+							android:button="@drawable/checkbox_filter_selector"
+							android:padding="@dimen/half_default_size"
+							android:layout_margin="@dimen/default_size"
+							android:layout_gravity="center_horizontal"
+							android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+							android:textSize="@dimen/font_normal"
+							android:text="@string/Show_only_free"
+							android:checked="@{filter.isVacantOnly ?? false}"
+					/>
+				
+				</FrameLayout>
+				
+				<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						style="@style/Divider"/>
+				
+				<android.support.v7.widget.AppCompatButton
+						android:id="@+id/applyFilterButton"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/default_size"
+						android:layout_marginBottom="@dimen/default_size"
+						android:layout_marginLeft="@dimen/super_default_size"
+						android:layout_marginStart="@dimen/super_default_size"
+						android:layout_marginEnd="@dimen/super_default_size"
+						android:layout_marginRight="@dimen/super_default_size"
+						style="@style/Button.Flat.Primary"
+						android:text="@string/Apply"
+				/>
+			</LinearLayout>
+		</android.support.v7.widget.CardView>
+	</ScrollView>
+</layout>

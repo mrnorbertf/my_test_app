@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="Label.Status">
+		<item name="android:gravity">center</item>
+		<item name="android:textSize">@dimen/font_small</item>
+		<item name="android:paddingTop">@dimen/fourth_default_size</item>
+		<item name="android:paddingBottom">@dimen/fourth_default_size</item>
+		<item name="android:paddingLeft">@dimen/default_size</item>
+		<item name="android:paddingRight">@dimen/default_size</item>
+		<item name="android:paddingStart">@dimen/default_size</item>
+		<item name="android:paddingEnd">@dimen/default_size</item>
+		<item name="android:background">@drawable/rounded_status_text_view</item>
+	</style>
+</resources>

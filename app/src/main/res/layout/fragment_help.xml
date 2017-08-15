@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			tools:context=".ui.fragments.HelpFragments.HelpFragment"
+			android:background="@color/colorWhite"
+	>
+		
+		
+		<android.support.v7.widget.AppCompatTextView
+				android:id="@+id/howBookTV"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/default_size"
+				android:text="@string/how_book_washes"
+				style="@style/Label.Medium.WithArrow"
+		/>
+		
+		<View
+				android:layout_width="wrap_content"
+				android:layout_height="1dp"
+				style="@style/Divider"/>
+		
+		<android.support.v7.widget.AppCompatTextView
+				android:id="@+id/howContactTV"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/default_size"
+				android:text="@string/how_to_contact_us"
+				style="@style/Label.Medium.WithArrow"
+		/>
+		
+		<View
+				android:layout_width="wrap_content"
+				android:layout_height="1dp"
+				style="@style/Divider"/>
+	</LinearLayout>
+</layout>

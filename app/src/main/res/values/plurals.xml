@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<plurals name="reviews">
+		<item quantity="zero">нет отзывов</item>
+		<item quantity="one">%1$d отзыв</item>
+		<item quantity="two">%1$d отзыва</item>
+		<item quantity="few">%1$d отзыва</item>
+		<item quantity="many">%1$d отзывов</item>
+		<item quantity="other">%1$d отзывов</item>
+	</plurals>
+	
+	<plurals name="reviews_without_count">
+		<item quantity="zero">отзывов</item>
+		<item quantity="one">отзыв</item>
+		<item quantity="two">отзыва</item>
+		<item quantity="few">отзыва</item>
+		<item quantity="many">отзывов</item>
+		<item quantity="other">отзывов</item>
+	</plurals>
+</resources>

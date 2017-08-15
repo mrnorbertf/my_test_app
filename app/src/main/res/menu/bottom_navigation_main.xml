@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+>
+	<item
+			android:id="@+id/action_washes"
+			android:icon="@drawable/icon_car_wash_white"
+			android:title="@string/washes"/>
+	<item
+			android:id="@+id/action_favorites"
+			android:icon="@drawable/icon_favorite_white"
+			android:title="@string/favorites"/>
+	<item
+			android:id="@+id/action_enrolls"
+			android:icon="@drawable/icon_list_white"
+			android:title="@string/my_enrolls"/>
+	<item
+			android:id="@+id/action_profile"
+			android:icon="@drawable/icon_user_white"
+			android:title="@string/profile"/>
+	<item
+			android:id="@+id/action_help"
+			android:icon="@drawable/icon_help_white"
+			android:title="@string/help"/>
+</menu>

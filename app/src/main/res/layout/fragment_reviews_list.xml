@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+	<data>
+		<import type="android.view.View"/>
+		<variable name="reviews" type="moiavto.mbsl.ru.myauto.data.serverModel.ReviewListResponseModel"/>
+	</data>
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/colorWhite"
+	>
+		
+		
+		<include android:id="@+id/progressBar"
+		         layout="@layout/include_progress_bar"
+		         android:visibility="gone"
+		/>
+		
+		
+		<RelativeLayout
+				android:id="@+id/header_score_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+				android:padding="@dimen/default_size"
+				android:background="@color/colorLightBackground"
+		>
+			
+			<LinearLayout
+					android:id="@+id/score_layout"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentStart="true"
+					android:orientation="vertical"
+					android:gravity="center"
+					android:visibility="@{reviews.rating == null ? View.GONE : View.VISIBLE}"
+			>
+				
+				<android.support.v7.widget.AppCompatTextView
+						android:id="@+id/score_value_tv"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						style="@style/Label.Score"
+						android:text="@{reviews.rating.toString()}"
+				/>
+				
+				<android.support.v7.widget.AppCompatTextView
+						android:id="@+id/score_caption"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						style="@style/Label.Sub"
+						android:text="@string/rating"
+				/>
+			
+			</LinearLayout>
+			
+			
+			<android.support.v7.widget.AppCompatRatingBar
+					android:id="@+id/ratingBar"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_centerInParent="true"
+					android:numStars="5"
+					android:isIndicator="true"
+					android:rating="@{reviews.rating.floatValue()}"
+					style="@style/larger_rating_bar"
+			/>
+			
+			<LinearLayout
+					android:id="@+id/review_counts_layout"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_alignParentEnd="true"
+					android:orientation="vertical"
+					android:gravity="center"
+					android:visibility="@{reviews.count == null ? View.GONE : View.VISIBLE}"
+			>
+				
+				<android.support.v7.widget.AppCompatTextView
+						android:id="@+id/review_counts_tv"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						style="@style/Label.Score"
+						android:text="@{reviews.count.toString()}"
+				/>
+				
+				<android.support.v7.widget.AppCompatTextView
+						android:id="@+id/review_caption"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						style="@style/Label.Sub"
+						android:text="@{@plurals/reviews_without_count(reviews.count ?? 0, reviews.count ?? 0)}"
+				/>
+			
+			</LinearLayout>
+		
+		</RelativeLayout>
+		
+		<android.support.v7.widget.AppCompatTextView
+				android:id="@+id/emptyListTV"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/msg_no_comments_data"
+				android:layout_centerInParent="true"
+				style="@style/Label.EmptyTemplate.Black"
+				android:visibility="@{reviews.reviews.empty ? View.VISIBLE : View.GONE}"
+		/>
+		
+		<android.support.v7.widget.RecyclerView
+				android:id="@+id/reviewsRV"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/header_score_layout"
+				android:layout_above="@+id/addReviewButton"
+		/>
+		
+		<android.support.v7.widget.AppCompatButton
+				android:id="@+id/addReviewButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_alignParentBottom="true"
+				android:layout_marginTop="@dimen/double_default_size"
+				android:layout_marginBottom="@dimen/double_default_size"
+				android:paddingTop="@dimen/default_size"
+				android:paddingBottom="@dimen/default_size"
+				style="@style/Button.Flat.Primary"
+				android:text="@string/Give_review"
+		/>
+	</RelativeLayout>
+</layout>

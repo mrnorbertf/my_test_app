@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+	<data>
+		<import type="android.view.View"/>
+		<import type="android.text.TextUtils"/>
+		<variable name="settings" type="moiavto.mbsl.ru.myauto.data.domainData.SettingsData"/>
+	</data>
+	
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:animateLayoutChanges="true"
+			android:background="@color/colorWhite"
+	>
+		
+		<include
+				android:id="@+id/userLayout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				layout="@layout/include_account_profile"
+				app:user="@{settings.user}"
+		/>
+		
+		<RelativeLayout
+				android:id="@+id/header_score_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/default_size"
+				android:background="@color/colorLightBackground"
+				android:gravity="center_vertical"
+				android:layout_below="@+id/userLayout"
+		>
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/service_header_tv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_centerVertical="true"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentStart="true"
+					android:layout_toLeftOf="@+id/addCarButton"
+					android:layout_toStartOf="@+id/addCarButton"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+					android:text="@string/cars"
+			/>
+			
+			
+			<android.support.v7.widget.AppCompatImageView
+					android:id="@+id/addCarButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentRight="true"
+					android:src="@drawable/icon_add_car"
+			/>
+		
+		</RelativeLayout>
+		
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_below="@+id/header_score_layout"
+		>
+			
+			<android.support.v7.widget.RecyclerView
+					android:id="@+id/carsRV"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:visibility="@{settings.cars.empty ? View.GONE : View.VISIBLE}"
+			/>
+			
+			
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/emptyListTV"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/msg_no_data"
+					android:layout_centerInParent="true"
+					style="@style/Label.EmptyTemplate.Black"
+					android:visibility="@{settings.cars.empty ? View.VISIBLE : View.GONE}"
+			/>
+		
+		</RelativeLayout>
+		
+		
+		<include
+				android:id="@+id/includedProgressDialog"
+				layout="@layout/include_progress_bar"/>
+	</RelativeLayout>
+</layout>

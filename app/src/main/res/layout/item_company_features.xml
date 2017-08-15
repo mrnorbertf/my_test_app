@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<variable name="feature" type="moiavto.mbsl.ru.myauto.data.serverModel.CompanyFeatureModel"/>
+	</data>
+	<ImageView
+			android:id="@+id/featureImage"
+			android:layout_width="@dimen/feature_widget_size"
+			android:layout_height="@dimen/feature_widget_size"
+			android:layout_marginLeft="@dimen/fourth_default_size"
+			android:layout_marginRight="@dimen/fourth_default_size"
+			android:layout_marginEnd="@dimen/fourth_default_size"
+			android:layout_marginStart="@dimen/fourth_default_size"
+			app:imageDrawable="@{feature.companyFeatureId}"
+	/>
+</layout>

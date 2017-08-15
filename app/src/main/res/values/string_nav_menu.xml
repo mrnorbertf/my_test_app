@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<string name="washes">Мойки</string>
+	<string name="favorites">Избранное</string>
+	<string name="my_enrolls">Мои записи</string>
+	<string name="profile">Профиль</string>
+	<string name="help">Помощь</string>
+	<string name="filter">Фильтры</string>
+	<string name="Logout">Выход</string>
+	<string name="reviews">Отзывы</string>
+	<string name="review_create">Написать</string>
+	<string name="settings">Настройки</string>
+	<string name="settings_edit">Редактирование авто</string>
+	<string name="settings_add">Добавление авто</string>
+
+</resources>

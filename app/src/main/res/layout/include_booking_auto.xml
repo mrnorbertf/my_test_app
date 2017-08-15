@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+	<data>
+		<import type="android.view.View"/>
+		<import type="android.text.TextUtils"/>
+		<variable name="booking" type="moiavto.mbsl.ru.myauto.data.serverModel.BookingModel"/>
+	</data>
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:padding="@dimen/default_size"
+		>
+			
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/car_header_tv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentTop="true"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentStart="true"
+					style="@style/Label.Bold"
+					android:text="@string/Car"/>
+			
+			<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/carTV"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentTop="true"
+					android:layout_toRightOf="@id/car_header_tv"
+					android:layout_toEndOf="@id/car_header_tv"
+					android:layout_marginLeft="@dimen/default_size"
+					android:layout_marginStart="@dimen/default_size"
+					style="@style/Label.Bold.Black"
+					android:text="@{booking.carName}"/>
+			
+			<RelativeLayout
+					android:layout_below="@+id/carTV"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:paddingTop="@dimen/half_default_size"
+					android:visibility="@{booking.bookingDate == null &amp;&amp; TextUtils.isEmpty(booking.bookingTime) &amp;&amp; TextUtils.isEmpty(booking.boxName) ? View.GONE : View.VISIBLE}">
+				
+				<LinearLayout
+						android:layout_toLeftOf="@+id/booking_time_layout"
+						android:layout_toStartOf="@+id/booking_time_layout"
+						android:id="@+id/booking_date_layout"
+						android:orientation="horizontal"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentLeft="true"
+						android:layout_alignParentStart="true"
+						android:visibility="@{booking.bookingDate == null ? View.GONE : View.VISIBLE}"
+				>
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/bookingDateHeaderTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/Label.Small"
+							android:text="@string/data"/>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/bookingDateTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginLeft="@dimen/fourth_default_size"
+							android:layout_marginStart="@dimen/fourth_default_size"
+							android:ellipsize="end"
+							android:maxLines="1"
+							style="@style/Label.Small.Black"
+							app:dateTextWithDots="@{booking.bookingDate}"
+					/>
+				
+				</LinearLayout>
+				
+				<LinearLayout
+						android:layout_centerHorizontal="true"
+						android:id="@+id/booking_time_layout"
+						android:orientation="horizontal"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:visibility="@{TextUtils.isEmpty(booking.bookingTime) ? View.GONE : View.VISIBLE}"
+				>
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/bookingTimeHeaderTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/Label.Small"
+							android:text="@string/Time"/>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/bookingTimeTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginLeft="@dimen/fourth_default_size"
+							android:layout_marginStart="@dimen/fourth_default_size"
+							android:ellipsize="end"
+							android:maxLines="1"
+							style="@style/Label.Small.Black"
+							android:text="@{booking.bookingTime}"/>
+				</LinearLayout>
+				
+				<LinearLayout
+						android:layout_toRightOf="@+id/booking_time_layout"
+						android:layout_toEndOf="@+id/booking_time_layout"
+						android:gravity="end"
+						android:id="@+id/booking_box_name_layout"
+						android:orientation="horizontal"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentRight="true"
+						android:layout_alignParentEnd="true"
+						android:visibility="@{TextUtils.isEmpty(booking.boxName) ? View.GONE : View.VISIBLE}"
+				>
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/bookingBoxHeaderTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/Label.Small"
+							android:text="@string/Box"/>
+					
+					<android.support.v7.widget.AppCompatTextView
+							android:id="@+id/bookingBoxTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginLeft="@dimen/fourth_default_size"
+							android:layout_marginStart="@dimen/fourth_default_size"
+							android:ellipsize="end"
+							android:maxLines="1"
+							style="@style/Label.Small.Black"
+							android:text="@{booking.boxName}"/>
+				</LinearLayout>
+			</RelativeLayout>
+		
+		</RelativeLayout>
+		<View
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				style="@style/Divider"/>
+	</LinearLayout>
+</layout>
